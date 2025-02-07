@@ -28,7 +28,7 @@ const Cart = () => {
     <div className="cart">
       <h1>Your Cart ({cartQuantity})</h1>
       {/* map the cart contents here */}
-<<<<<<< Updated upstream
+
       {cartQuantity == 0 ? (
         <EmptyCartIcon />
       ) : (
@@ -57,44 +57,14 @@ const Cart = () => {
             </span>
           </div>
           <div className="confirm-order">
-            <button>Confirm Order</button>
+            {/* <button>Confirm Order</button> */}
+            <button onClick={handleModal}>Open Modal</button>
+            {modalOpen && (
+              <Modal closeModal={() => setModalOpen(false)}></Modal>
+            )}
           </div>
         </>
       )}
-=======
-      {cartItems.map((item) => (
-        <CartItem key={item.id} {...item} />
-      ))}
-      {/* spit out the total of the cart */}
-      <div className="cart-total">
-        <div className="cart-total-label">Order total</div>
-        <div className="cart-total-cost">
-          {formatCurrency(
-            cartItems.reduce((total, cartItem) => {
-              const item = storeItems.find((i) => i.id === cartItem.id);
-              return total + (item?.price || 0) * cartItem.quantity;
-            }, 0)
-          )}
-        </div>
-      </div>
-      <div className="neutral-delivery">
-        <span>
-          <CartIcon />
-          This is a&nbsp;
-          <span className="cart-text-dark">&nbsp;carbon-neutral</span> delivery.
-        </span>
-      </div>
-      <div className="confirm-order">
-        {/* <button onClick={() => setIsOpen(true)}>Confirm Order</button>
-
-        <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-          Fancy Modal
-        </Modal> */}
-
-        <button onClick={handleModal}>Confirm Order</button>
-        {modalOpen && <Modal closeModal={() => setModalOpen(false)}></Modal>}
-      </div>
->>>>>>> Stashed changes
     </div>
   );
 };
