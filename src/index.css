@@ -1,0 +1,347 @@
+@font-face {
+  font-family: "Red Hat Text";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/RedHatText-Regular.ttf");
+}
+@font-face {
+  font-family: "Red Hat Text";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./assets/fonts/RedHatText-SemiBold.ttf");
+}
+@font-face {
+  font-family: "Red Hat Text";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./assets/fonts/RedHatText-Bold.ttf");
+}
+
+:root {
+  --clr-primary-red: hsl(14, 86%, 42%);
+  --clr-primary-green: hsl(159, 69%, 38%);
+
+  --clr-med-grey: hsl(0, 0%, 70%);
+  --clr-dark-grey: hsl(0, 0%, 25%);
+
+  --clr-rose-50: hsl(20, 50%, 98%);
+  --clr-rose-100: hsl(13, 31%, 94%);
+  --clr-rose-300: hsl(14, 25%, 72%);
+  --clr-rose-400: hsl(7, 20%, 60%);
+  --clr-rose-500: hsl(12, 20%, 44%);
+  --clr-rose-900: hsl(14, 65%, 9%);
+
+  --ff-primary: "Red Hat Text", sans-serif;
+
+  --fw-700: 700;
+  --fw-500: 500;
+  --fw-400: 400;
+
+  --fs-200: 0.75rem;
+  --fs-300: 1rem;
+  --fs-400: 1.25rem;
+  --fs-500: 1.375rem;
+  --fs-600: 1.75rem;
+  --fs-900: 2.125rem;
+
+  --spacer: 1rem;
+}
+
+/* reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4 {
+  line-height: 1;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+dl,
+dd,
+figure {
+  margin: 0;
+  color: var(--clr-dark-grey);
+}
+
+body {
+  /* font-size: 16px; */
+  font-family: var(--ff-primary);
+  font-size: 1rem;
+}
+
+img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+  padding: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+/* end of reset */
+
+/* utilities */
+.container {
+  max-width: 58rem;
+  margin: 0 auto;
+}
+
+.split {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.flow-space * + * {
+  margin-bottom: var(--spacer);
+}
+
+/* typography */
+body {
+  background-color: var(--clr-rose-100);
+}
+
+/* .store,
+.cart {
+  margin-top: 2rem;
+} */
+
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  /* display: grid;
+  grid-template-columns: repeat(3, 3fr);
+  gap: 2rem; */
+}
+
+.product-item {
+  /* margin: 1rem; */
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.product-image {
+  border-color: var(--clr-med-grey);
+  border-radius: 0.5rem;
+}
+
+.product-image--selected {
+  border: 2px solid;
+  border-color: var(--clr-rose-300);
+}
+.product-selector {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+  justify-items: center;
+  outline: 1px solid var(--clr-med-grey);
+  background-color: var(--clr-rose-50);
+  color: var(--clr-dark-grey);
+  /* width: max-content; */
+  width: 8rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -1rem;
+}
+
+.product-selector > button {
+  /* display: flex; */
+  /* display flex messes with - + when selected. make changes in selected class below */
+  /* flex-direction: row; */
+  /* align-items: center; */
+  background: transparent;
+  /* color: var(--clr-rose-50); */
+  padding: 0;
+  border: none;
+  height: 100%;
+  width: 100%;
+  /* cursor: pointer; */
+  /* font-size: var(--fs-200); */
+  /* justify-content: space-between; */
+}
+.product-selector--selected {
+  /* flex-direction: column; */
+  background-color: var(--clr-rose-300);
+  color: var(--clr-rose-50);
+  outline: var(--clr-rose-300);
+}
+.product-selector--selected > button {
+  /* position: relative; */
+  border: 1px solid;
+  height: 1rem;
+  width: 1rem;
+  border-color: var(--clr-rose-50);
+  border-radius: 50%;
+  color: inherit;
+}
+
+.product-selector > * + * {
+  /* margin-left: 0.5rem; */
+  /* align-content: center; */
+}
+
+.product-selector-qty {
+  /* align the + - buttons and give breathing room between */
+  margin: 0 1rem;
+}
+
+.product-selector > button > svg,
+.neutral-delivery > span > svg {
+  height: 16px;
+  /* width: 16px; */
+  padding-top: 3px;
+}
+.product-selector--selected > button > svg {
+  padding-bottom: 3px;
+  padding-top: 0;
+}
+
+.cart {
+  /* min-width: 100%; */
+  height: fit-content;
+  border: 1px solid;
+  border-color: var(--clr-rose-300);
+  background-color: var(--clr-rose-50);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+}
+.cart h1 {
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+/* cart and store widths work in conjunction, and with split*/
+.store {
+  max-width: 100%;
+}
+
+.cart-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* align-content: center; */
+  border-bottom: 1px solid;
+  border-color: var(--clr-med-grey);
+}
+
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2rem;
+  padding: 0.25rem 0 0.25rem 0;
+}
+
+/* cart text colourways, complex, try keep together */
+.cart > h1,
+.cart-item-quantity {
+  color: var(--clr-rose-500);
+}
+.cart-item-details p,
+.cart {
+  color: var(--clr-med-grey);
+}
+.cart-item-details p:first-of-type,
+.cart-text-dark,
+.cart-total-cost {
+  color: var(--clr-dark-grey);
+}
+.neutral-delivery {
+  background-color: var(--clr-rose-100);
+}
+/* end cart color */
+
+.cart-total {
+  margin-top: var(--spacer);
+  display: flex;
+  justify-content: space-between;
+}
+.cart-total:nth-child(1) {
+  font-size: 0.75rem;
+  color: var(--clr-med-grey);
+}
+.item-remove {
+  align-self: center;
+  border-radius: 100%;
+  line-height: 0.95;
+  border: 1px solid;
+  outline: var(--clr-med-grey);
+  color: var(--clr-med-grey);
+  height: 1.1rem;
+  width: 1.1rem;
+}
+.cart-total-cost {
+  font-size: 1.5rem;
+}
+.neutral-delivery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm-order {
+  display: flex;
+  justify-content: center;
+}
+.confirm-order button {
+  background-color: var(--clr-rose-500);
+  color: var(--clr-rose-50);
+  padding: 0.75rem 5rem;
+  border-radius: 2rem;
+  border: none;
+  font-size: 0.9rem;
+  margin-top: var(--spacer);
+  margin-bottom: var(--spacer);
+}
+
+@media (min-width: 40em) {
+  .split {
+    /* grid gives empty cart more structure which can grow elegantly when populated */
+    /* but just use flex on mobile */
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+  }
+
+  .products {
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    gap: 2rem;
+  }
+  .product-item {
+    margin: 0;
+  }
+}
