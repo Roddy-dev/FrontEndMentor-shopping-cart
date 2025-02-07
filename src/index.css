@@ -125,7 +125,7 @@ button {
 }
 
 .backdrop {
-  /* fixed to stop scroll */
+  /* fixed to stop scroll problems */
   position: fixed;
   z-index: 100;
   top: 0;

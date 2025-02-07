@@ -60,7 +60,7 @@ const Products = () => {
 };
 
 const ProductSelector = (item) => {
-  console.log("item", item);
+  // console.log("item", item);
   //    if quantity is 0 render add to cart and cart icon
   //   placeholder value, might move to cart local storeage later
 

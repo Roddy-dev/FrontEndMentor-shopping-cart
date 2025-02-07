@@ -10,7 +10,8 @@ import CartItem from "./CartItem";
 import Modal from "./Modal";
 
 const Cart = () => {
-  const { cartItems, cartQuantity } = useShoppingCart();
+  const { cartItems, cartQuantity, removeFromCart, removeAllFromCart } =
+    useShoppingCart();
   const [modalOpen, setModalOpen] = useState(false);
   // const [cart, setCart] = useLocalStorageState("cart", {});
   // {cartItems.map((item) => (
@@ -19,6 +20,16 @@ const Cart = () => {
   //Function to toggle state for opening and closing modal
   const handleModal = () => {
     setModalOpen(!modalOpen);
+  };
+
+  const handleCartEmpty = () => {
+    // map trash and call removeFromCart
+    // console.log("trashItems", trashItems);
+    // trashItems.map((item) => {
+    //   console.log("item.id", item.id);
+    //   removeFromCart(item.id);
+    // });
+    return removeAllFromCart();
   };
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -58,9 +69,17 @@ const Cart = () => {
           </div>
           <div className="confirm-order">
             {/* <button>Confirm Order</button> */}
-            <button onClick={handleModal}>Open Modal</button>
+            <button onClick={handleModal}>Confirm Order</button>
             {modalOpen && (
-              <Modal closeModal={() => setModalOpen(false)}></Modal>
+              <Modal
+                closeModal={() => {
+                  setModalOpen(false);
+                  handleCartEmpty(cartItems);
+                }}
+                buttonText={"Place Order"}
+              >
+                children props hear
+              </Modal>
             )}
           </div>
         </>

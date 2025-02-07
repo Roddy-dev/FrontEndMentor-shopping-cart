@@ -11,9 +11,9 @@ const CartItem = (item, quantity) => {
   const matchedItem = storeItems.find(function (i) {
     return i.id === item.id;
   });
-  console.log("matchedItem", matchedItem);
-  console.log("itemobj", item);
-  console.log("quantity", quantity);
+  // console.log("matchedItem", matchedItem);
+  // console.log("itemobj", item);
+  // console.log("quantity", quantity);
   //   escape early if null
   if (item == null) return null;
 
