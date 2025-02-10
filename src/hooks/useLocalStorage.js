@@ -1,3 +1,7 @@
+// code was lifted from https://www.dhiwise.com/post/how-to-resolve-referenceerror-localstorage-is-not-defined
+// as it got round an error in firefox
+// neat sollution, would refer to again.
+
 import { useState } from "react";
 
 export function useLocalStorage(key, initialValue) {

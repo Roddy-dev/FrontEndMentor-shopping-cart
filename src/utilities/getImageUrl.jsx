@@ -1,13 +1,13 @@
-// helper function to extract the path
+// helper function to extract the path data.json to a relative path
 const shortenImageString = (url, key) => {
   return url[key].substring(
-    url.desktop.lastIndexOf("/images"),
-    url.desktop.lastIndexOf(".jpg") + 4
+    url[key].lastIndexOf("/images"),
+    url[key].lastIndexOf(".jpg") + 4
   );
 };
 
 const getImageUrl = (url) => {
-  // console.log("url", url);
+  console.log("url", url);
   // get each of the paths and populate the srcsetpath
   // return the <img> with various img paths
   // numbers could be tweeked later when layout is completed
@@ -24,10 +24,12 @@ const getImageUrl = (url) => {
     <img
       src={desktopImg}
       srcSet={srcSetPath}
-      sizes="(max-width: 375px) 375px, (max-width: 768px) 768px, 1440px"
+      sizes="(max-width: 50px)(max-width: 375px) 375px, (max-width: 768px) 768px, 1440px"
       className="product-image"
     />
   );
 };
 
 export default getImageUrl;
+
+export { shortenImageString };

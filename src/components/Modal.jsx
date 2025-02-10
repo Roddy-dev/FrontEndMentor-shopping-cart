@@ -1,9 +1,8 @@
-import React from "react";
 import Backdrop from "./Backdrop";
 import "../index.css";
 
 // backdrop gives edge background and a place to create the react portal
-// needs model and a portal-root div in index.html to work
+// needs modal and a portal-root div in index.html to work
 
 const modal = ({ buttonText, closeModal, children }) => {
   return (

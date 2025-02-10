@@ -2,18 +2,15 @@ import storeItems from "../data/data.json";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { formatCurrency } from "../utilities/currencyFormatter";
 
-const CartItem = (item, quantity) => {
-  console.log("qty", item.quantity);
-  console.log(typeof item.id);
+const CartItem = (item) => {
+  // item consistes of id and quantity in cart, match that up to data.json
   const { removeFromCart } = useShoppingCart();
 
   // match the json data to id in props
   const matchedItem = storeItems.find(function (i) {
     return i.id === item.id;
   });
-  // console.log("matchedItem", matchedItem);
-  // console.log("itemobj", item);
-  // console.log("quantity", quantity);
+
   //   escape early if null
   if (item == null) return null;
 

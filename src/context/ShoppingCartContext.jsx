@@ -59,13 +59,12 @@ export function ShoppingCartProvider({ children }) {
 
   function removeFromCart(id) {
     setCartItems((currItems) => {
-      console.log("id removed at context", id);
       return currItems.filter((item) => item.id !== id);
     });
   }
 
   function removeAllFromCart() {
-    console.log("remove all", cartItems);
+    // key is set in local storage hook, just pass an empty array
     return setCartItems([]);
   }
 
