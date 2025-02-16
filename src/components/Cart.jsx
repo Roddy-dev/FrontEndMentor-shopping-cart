@@ -27,7 +27,7 @@ const Cart = () => {
 
   return (
     <div className="cart">
-      <h1>Your Cart ({cartQuantity})</h1>
+      <h1 data-testid="cart">Your Cart ({cartQuantity})</h1>
       {/* map the cart contents here, depending in any selected */}
 
       {cartQuantity == 0 ? (

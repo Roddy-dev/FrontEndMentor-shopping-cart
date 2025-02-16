@@ -20,8 +20,9 @@ const getImageUrl = (url) => {
 
   return (
     // tested by clearing cache narrowing page and reload, works for tablet and desktop
-    // might change when in containning element
+    // might change when in containning element, so far so good.
     <img
+      data-testid="image-url"
       src={desktopImg}
       srcSet={srcSetPath}
       sizes="(max-width: 50px)(max-width: 375px) 375px, (max-width: 768px) 768px, 1440px"

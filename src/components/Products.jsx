@@ -10,11 +10,13 @@ import { useShoppingCart } from "../context/ShoppingCartContext";
 const Products = () => {
   return (
     <div className="store-items-table">
-      <div className="products">
+      <div className="products" data-testid="products">
         {storeItems.map(function (item) {
           return (
             <article key={item.id} className="product-item">
-              <div className="product-img">{getImageUrl(item.image)}</div>
+              <div className="product-img" alt={`image of ${item.category}`}>
+                {getImageUrl(item.image)}
+              </div>
               <ProductSelector {...item} />
               <div className="item-details">
                 <p>{item.category}</p>
@@ -47,13 +49,19 @@ const ProductSelector = (item) => {
         </div>
       ) : (
         <div className="product-selector product-selector--selected">
-          <button onClick={() => decreaseCartQuantity(item.id)}>
+          <button
+            data-testid="product-decrement"
+            onClick={() => decreaseCartQuantity(item.id)}
+          >
             <DecrementIcon />
           </button>
-          <span className="product-selector-qty">
+          <span data-testid="qty-in-cart" className="product-selector-qty">
             {getItemQuantity(item.id)}
           </span>
-          <button onClick={() => increaseCartQuantity(item.id)}>
+          <button
+            data-testid="product-increment"
+            onClick={() => increaseCartQuantity(item.id)}
+          >
             <IncrementIcon />
           </button>
         </div>
@@ -63,3 +71,5 @@ const ProductSelector = (item) => {
 };
 
 export default Products;
+
+export { ProductSelector };

@@ -5,4 +5,9 @@ import svgr from "vite-plugin-svgr";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), svgr()],
+  test: {
+    environment: "happy-dom",
+    setupFiles: ["./src/tests/setup.js"],
+    include: ["src/**/*.{test,spec}.{js,jsx}"],
+  },
 });
