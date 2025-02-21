@@ -4,6 +4,9 @@ import svgr from "vite-plugin-svgr";
 
 // https://vite.dev/config/
 export default defineConfig({
+  // const ASSET_URL = process.env.ASSET_URL || '/';
+  // base: `${ASSET_URL}/`,
+  // base: import.meta.env.MODE === "production" ? "/frontend-cart-app/" : "/",
   plugins: [react(), svgr()],
   test: {
     environment: "happy-dom",
