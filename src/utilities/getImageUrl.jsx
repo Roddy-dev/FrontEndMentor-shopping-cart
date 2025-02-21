@@ -1,9 +1,13 @@
 // helper function to extract the path data.json to a relative path
 const shortenImageString = (url, key) => {
-  return url[key].substring(
-    url[key].lastIndexOf("/images"),
+  const BASE_URL = import.meta.env.BASE_URL;
+  // base url is some base name in production set in vite config
+  console.log("BASE_URL", BASE_URL);
+  const resultString = url[key].substring(
+    url[key].lastIndexOf("images"),
     url[key].lastIndexOf(".jpg") + 4
   );
+  return BASE_URL.concat(resultString);
 };
 
 const getImageUrl = (url) => {

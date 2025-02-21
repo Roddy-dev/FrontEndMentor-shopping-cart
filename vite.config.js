@@ -10,4 +10,8 @@ export default defineConfig({
     setupFiles: ["./src/tests/setup.js"],
     include: ["src/**/*.{test,spec}.{js,jsx}"],
   },
+  base:
+    process.env.NODE_ENV === "production"
+      ? "/FrontEndMentor-shopping-cart/"
+      : "/",
 });
