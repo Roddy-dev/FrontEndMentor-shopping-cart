@@ -8,7 +8,7 @@ const Store = () => {
       <div className="container">
         <div className="split">
           <div className="store">
-            <h1>Desert</h1>
+            <h1>Dessert</h1>
             <Products />
           </div>
           <Cart />
