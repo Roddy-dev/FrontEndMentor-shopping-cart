@@ -36,7 +36,7 @@ Screenshots are in /screenshots
 
 ## My process
 
-![Live Demo](https://roddy-dev.github.io/FrontEndMentor-shopping-cart/)
+[Live Demo](https://roddy-dev.github.io/FrontEndMentor-shopping-cart/)
 
 I wanted to build on my Reactjs and plain CSS skills. I used vite to scaffold the project.
 Most of the pointers to react were from "The Road to React" book by Robin Wieruth and shopping cart ideas were from Kyle of webdevsimplified. I tried various methods of modals, the one I was most happy with was from this article https://javascript.plainenglish.io/creating-modals-with-react-portal-40829c33a626 which didn't require any packages and was fairly adaptable.
